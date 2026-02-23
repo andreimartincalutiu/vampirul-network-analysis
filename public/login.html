@@ -34,7 +34,7 @@
       color:var(--gold);
       font-size:1.6rem;
     }
-    p{ margin:0 0 18px; color:var(--muted); font-family:"Space Mono", monospace; font-size:0.85rem;}
+    p{ margin:5px 0 18px; color:var(--muted); font-family:"Space Mono", monospace; font-size:0.85rem;}
     label{ display:block; margin:12px 0 6px; color:var(--muted); font-size:0.9rem;}
     input{
       width:100%;
@@ -75,7 +75,7 @@
   </head>
   <body>
     <div class="card">
-      <h1>DIGITAL LITERATURE ANALYSIS REPOSITORY</h1>
+      <h1>A REPOSITORY FOR DIGITAL LITERATURE ANALYSIS</h1>
       <p>Authorized access only</p>
 
       <form method="POST" action="/login">
@@ -91,11 +91,13 @@
 
         <div class="err" id="err">Invalid username or password.</div>
       </form>
-    </div>
+      <p>Request access at <a style="color:var(--gold)"
+          href="mailto:andreinicolae@tuta.io">andreinicolae@tuta.io</a>
+      </div>
 
-    <script>
+      <script>
     const params = new URLSearchParams(location.search);
     if (params.get("err") === "1") document.getElementById("err").style.display = "block";
   </script>
-  </body>
-</html>
+    </body>
+  </html>
