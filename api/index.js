@@ -27,6 +27,10 @@ function requireAuth(req, res, next) {
     return res.redirect("/login");
 }
 
+app.get("/home", requireAuth, (req, res) => {
+    res.sendFile(path.join(process.cwd(), "private", "home.html"));
+});
+
 app.get("/login", (req, res) => {
     res.sendFile(path.join(process.cwd(), "public", "login.html"));
 });
@@ -36,7 +40,7 @@ app.post("/login", (req, res) => {
 
     if (username === USERNAME && password === PASSWORD) {
         req.session.user = { username };
-        return res.redirect("/");
+        return res.redirect("/home");
     }
 
     return res.redirect("/login?err=1");

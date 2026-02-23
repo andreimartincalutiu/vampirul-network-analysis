@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Login • Character Network</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
-            rel="stylesheet">
-        <style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login • Character Network</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet">
+    <style>
     :root{
       --bg-dark:#0a0e1a; --bg-panel:#151925; --text:#e8eaed; --muted:#9195a0;
       --gold:#d4af37; --border:#2a2f3e;
@@ -72,30 +72,30 @@
       font-size:0.85rem;
     }
   </style>
-    </head>
-    <body>
-        <div class="card">
-            <h1>CHARACTER NETWORK</h1>
-            <p>Authorized access only</p>
+  </head>
+  <body>
+    <div class="card">
+      <h1>DIGITAL LITERATURE ANALYSIS REPOSITORY</h1>
+      <p>Authorized access only</p>
 
-            <form method="POST" action="/login">
-                <label for="username">Username</label>
-                <input id="username" name="username" autocomplete="username"
-                    required />
+      <form method="POST" action="/login">
+        <label for="username">Username</label>
+        <input id="username" name="username" autocomplete="username"
+          required />
 
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password"
-                    autocomplete="current-password" required />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password"
+          autocomplete="current-password" required />
 
-                <button class="btn" type="submit">Sign in</button>
+        <button class="btn" type="submit">Sign in</button>
 
-                <div class="err" id="err">Invalid username or password.</div>
-            </form>
-        </div>
+        <div class="err" id="err">Invalid username or password.</div>
+      </form>
+    </div>
 
-        <script>
+    <script>
     const params = new URLSearchParams(location.search);
     if (params.get("err") === "1") document.getElementById("err").style.display = "block";
   </script>
-    </body>
+  </body>
 </html>

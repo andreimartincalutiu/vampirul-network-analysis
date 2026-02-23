@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Undead Networks</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap"
+            rel="stylesheet">
+
+        <style>
+    :root {
+        --bg: #090d17;
+        --surface: #111520;
+        --border: rgba(255,255,255,.07);
+        --text: #dde1ea;
+        --muted: #6b7080;
+        --gold: #c9a84c;
+        --gold-dim: rgba(201,168,76,.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Crimson Pro", Georgia, serif;
+        font-weight: 300;
+        min-height: 100vh;
+        background-image:
+            radial-gradient(ellipse 80% 50% at 15% 0%, rgba(201,168,76,.08) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 40% at 85% 100%, rgba(80,90,140,.1) 0%, transparent 55%);
+    }
+
+    header {
+        position: sticky; top: 0; z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(9,13,23,.7);
+        border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+    .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+    }
+    .brand-name {
+        font-family: "DM Mono", monospace;
+        font-weight: 400;
+        font-size: .85rem;
+        letter-spacing: .18em;
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+    .btn {
+        font-family: "DM Mono", monospace;
+        font-size: .78rem;
+        letter-spacing: .06em;
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        transition: color .2s, border-color .2s;
+        text-decoration: none;
+        display: inline-flex; align-items: center;
+    }
+    .btn:hover { color: var(--text); border-color: rgba(255,255,255,.18); }
+    .btn.primary {
+        color: var(--bg);
+        background: var(--gold);
+        border-color: var(--gold);
+    }
+    .btn.primary:hover { background: #dbb958; border-color: #dbb958; }
+
+    .hero {
+        padding: 100px 0 80px;
+        max-width: 620px;
+    }
+    .eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: .75rem;
+        letter-spacing: .14em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 28px;
+    }
+    .hero h1 {
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: -.01em;
+        margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 500px;
+        margin-bottom: 44px;
+    }
+    .hero-meta {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        padding-top: 36px;
+        border-top: 1px solid var(--border);
+    }
+    .meta-item .k {
+        font-family: "DM Mono", monospace;
+        font-size: .7rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+    }
+    .meta-item .v {
+        font-size: 1.05rem;
+        color: var(--text);
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+    }
+
+    .featured {
+        padding: 80px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+    @media (max-width: 780px) {
+        .featured { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .featured-label {
+        font-family: "DM Mono", monospace;
+        font-size: .72rem;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 24px;
+    }
+    .featured h2 {
+        font-size: 1.9rem;
+        font-weight: 400;
+        margin-bottom: 16px;
+        line-height: 1.3;
+    }
+    .featured-sub {
+        font-size: 1.1rem;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 32px;
+    }
+    .tag-row {
+        display: flex; flex-wrap: wrap; gap: 8px;
+        margin-bottom: 36px;
+    }
+    .tag {
+        font-family: "DM Mono", monospace;
+        font-size: .72rem;
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+    }
+    .featured-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .big-stat {
+        border-left: 2px solid var(--gold);
+        padding-left: 20px;
+    }
+    .big-stat .num {
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 6px;
+    }
+    .big-stat .desc {
+        font-size: 1rem;
+        color: var(--muted);
+    }
+
+    .section-header {
+        padding: 64px 0 32px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    .section-header h2 {
+        font-size: 1.6rem;
+        font-weight: 300;
+        letter-spacing: .02em;
+    }
+    .section-header span {
+        font-family: "DM Mono", monospace;
+        font-size: .75rem;
+        color: var(--muted);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 80px;
+    }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+        background: var(--surface);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: background .2s;
+    }
+    .card:hover { background: #161b2a; }
+    .card h3 {
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.35;
+    }
+    .card .card-sub {
+        font-size: 1rem;
+        color: var(--muted);
+        line-height: 1.55;
+        flex: 1;
+    }
+    .card .card-footer {
+        margin-top: 8px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+    .status-dot {
+        display: flex; align-items: center; gap: 7px;
+        font-family: "DM Mono", monospace;
+        font-size: .72rem;
+        color: var(--muted);
+    }
+    .status-dot::before {
+        content: '';
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--muted);
+        flex-shrink: 0;
+    }
+    .status-dot.live { color: #7ec99a; }
+    .status-dot.live::before { background: #7ec99a; box-shadow: 0 0 6px #7ec99a; }
+
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 32px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-family: "DM Mono", monospace;
+        font-size: .75rem;
+        color: var(--muted);
+    }
+    .link { color: var(--gold); text-decoration: none; }
+    .link:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero, .featured, .grid { animation: fadeUp .6s ease both; }
+    .featured { animation-delay: .1s; }
+    .grid      { animation-delay: .2s; }
+    </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="wrap">
+                <div class="topbar">
+                    <div class="brand-name">Undead Literature Networks</div>
+                    <div>
+                        <form method="POST" action="/logout" style="margin:0">
+                            <button class="btn" type="submit">Log out</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="wrap">
+
+                <section class="hero">
+                    <div class="eyebrow">Distant reading project</div>
+                    <h1>Distant reading of the <em>undead</em> literature</h1>
+                    <p>Network-based analyses of vampiric and revenant figures
+                        across transnational literary traditions — from Romanian
+                        strigoi to the Gothic canon.</p>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <div class="k">Location</div>
+                            <div class="v">Sibiu, Romania</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="k">Founded by</div>
+                            <div class="v">Anca-Simina Martin &amp; Andrei
+                                Martin-Căluțiu</div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="divider" />
+
+                <section class="featured">
+                    <div>
+                        <div class="featured-label">Featured analysis</div>
+                        <h2>Vampirul — Character Network</h2>
+                        <p class="featured-sub">Based on the novel by Al.
+                            Bliciurescu &amp; G.M. Amza — the first entry in our
+                            archive of Romanian undead literature.</p>
+                        <div class="tag-row">
+                            <span class="tag">characters</span>
+                            <span class="tag">edges</span>
+                            <span class="tag">Romanian undead</span>
+                        </div>
+                        <a class="btn primary" href="/">Open network →</a>
+                    </div>
+                    <div class="featured-aside">
+                        <div class="big-stat">
+                            <div class="num">01</div>
+                            <div class="desc">First archived analysis</div>
+                        </div>
+                        <div class="big-stat">
+                            <div class="num">3+</div>
+                            <div class="desc">Analyses in progress</div>
+                        </div>
+                        <div class="big-stat">
+                            <div class="num">∞</div>
+                            <div class="desc">Undead literature to explore</div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="divider" />
+
+                <div class="section-header">
+                    <h2>All analyses</h2>
+                    <span id="count"></span>
+                </div>
+
+                <div class="grid" id="cards"></div>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="wrap" style="display:contents">
+                <span>© <span id="year"></span> Undead Networks • Sibiu,
+                    Romania</span>
+                <a class="link" href="#"
+                    onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑
+                    Back to top</a>
+            </div>
+        </footer>
+
+        <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const analyses = [
+        {
+            title: "Vampirul — Character Network",
+            subtitle: 'Al. Bliciurescu &amp; G.M. Amza',
+            tags: ["characters", "network", "Romanian undead"],
+            status: "live",
+            statusLabel: "Available now",
+            href: "/"
+        },
+        {
+            title: "Spatial Networks",
+            subtitle: "Literary spaces and locations across undead narratives.",
+            tags: ["spaces", "locations", "mapping"],
+            status: "progress",
+            statusLabel: "In progress",
+            href: "#"
+        },
+        {
+            title: "Transnational Comparisons",
+            subtitle: "Comparative distant reading across traditions and languages.",
+            tags: ["transnational", "comparison", "distant reading"],
+            status: "planned",
+            statusLabel: "Planned",
+            href: "#"
+        }
+    ];
+
+    document.getElementById("count").textContent = analyses.length + " entries";
+
+    const cards = document.getElementById("cards");
+
+    cards.innerHTML = analyses.map(item => {
+        const disabled = item.href === "#";
+        const tagHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join("");
+        return `
+        <article class="card">
+            <h3>${item.title}</h3>
+            <div class="card-sub">${item.subtitle}</div>
+            <div class="tag-row" style="margin-bottom:0">${tagHtml}</div>
+            <div class="card-footer">
+                <span class="status-dot ${item.status === 'live' ? 'live' : ''}">${item.statusLabel}</span>
+                ${disabled
+                    ? `<span class="btn" style="opacity:.4; pointer-events:none;">Soon</span>`
+                    : `<a class="btn primary" href="${item.href}">View →</a>`
+                }
+            </div>
+        </article>`;
+    }).join("");
+    </script>
+    </body>
+</html>
