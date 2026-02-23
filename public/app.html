@@ -35,7 +35,6 @@
             height: 100vh;
         }
 
-        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -72,7 +71,6 @@
             margin-left: 5px;
         }
 
-        /* Control Panel */
         .control-panel {
             position: fixed;
             top: 80px;
@@ -187,7 +185,6 @@
             margin-top: 5px;
         }
 
-        /* Graph Container */
         #network-container {
             position: fixed;
             top: 80px;
@@ -197,7 +194,6 @@
             background: radial-gradient(circle at 50% 50%, #0f1420 0%, var(--bg-dark) 100%);
         }
 
-        /* Tooltip */
         .tooltip {
             position: fixed;
             background: rgba(21, 25, 37, 0.7);
@@ -238,7 +234,6 @@
             font-family: 'Space Mono', monospace;
         }
 
-        /* Legend */
         .legend {
             position: fixed;
             bottom: 30px;
@@ -279,7 +274,6 @@
             opacity: 0.5;
         }
 
-        /* SVG Styles */
         .node {
             cursor: pointer;
             transition: all 0.3s;
@@ -327,7 +321,6 @@
             opacity: 0.3 !important;
         }
 
-        /* Loading */
         .loading {
             position: fixed;
             top: 50%;
@@ -338,7 +331,6 @@
             font-family: 'Space Mono', monospace;
         }
 
-        /* Right Drawer */
         .drawer {
             position: fixed;
             top: 80px;
@@ -427,7 +419,7 @@
         .drawer-content {
             flex: 1;
             overflow-y: auto;
-            overflow-x: hidden;  /* Prevent horizontal scroll */
+            overflow-x: hidden; 
             padding: 20px;
         }
 
@@ -439,7 +431,6 @@
             display: block;
         }
 
-        /* Character Profile */
         .character-profile {
             display: flex;
             flex-direction: column;
@@ -499,11 +490,11 @@
             padding: 15px;
             border-radius: 6px;
             border: 1px solid var(--border);
-            overflow: hidden;  /* Prevent overflow */
+            overflow: hidden;  
         }
 
         .chart-container svg {
-            max-width: 100%;  /* Make SVGs responsive */
+            max-width: 100%;  
             height: auto;
         }
 
@@ -515,7 +506,6 @@
             margin-bottom: 15px;
         }
 
-        /* Connections Controls */
         .connections-controls {
             display: flex;
             gap: 10px;
@@ -542,7 +532,6 @@
             border-color: var(--accent-gold);
         }
 
-        /* Partners Table */
         .partners-table {
             overflow-x: auto;
         }
@@ -614,7 +603,6 @@
             margin-top: 4px;
         }
 
-        /* Vampire Avatar Effects */
         .vampire-avatar {
             filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
             animation: vampirePulse 2s ease-in-out infinite;
@@ -643,7 +631,6 @@
             }
         }
 
-        /* Vampire connections (dashed lines between avatars) */
         .vampire-connection {
             stroke: #8b5cf6;
             stroke-dasharray: 5, 5;
@@ -657,7 +644,6 @@
             }
         }
 
-        /* Merge toggle button */
         .btn-vampire-toggle {
             background: linear-gradient(135deg, #ef4444 0%, #8b5cf6 100%);
             border: none;
@@ -686,7 +672,6 @@
             background: linear-gradient(135deg, #8b5cf6 0%, #ef4444 100%);
         }
 
-        /* Vampire badge */
         .vampire-badge {
             position: absolute;
             top: -8px;
@@ -701,13 +686,10 @@
             pointer-events: none;
         }
 
-        /* Merged node special styling */
         .vampire-merged {
             filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1));
-            /* Animation removed - was too distracting */
         }
 
-        /* True Identity Tab */
         .identity-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -784,7 +766,6 @@
             }
         }
 
-        /* Fade in for new merged node */
         .node-fade-in {
             animation: fadeIn 0.5s ease-in forwards;
         }
@@ -800,7 +781,6 @@
             }
         }
 
-        /* Fade out for splitting */
         .node-fade-out {
             animation: fadeOut 0.3s ease-out forwards;
         }
@@ -869,10 +849,10 @@
             </div>
 
             <div class="control-section">
-                <h3>🎭 Vampire Identity</h3>
+                <h3>Vampire Identity</h3>
                 <div class="filter-buttons">
                     <button class="btn btn-vampire-toggle" id="vampire-toggle">
-                        🎭 Merge Vampire
+                        Merge Vampire
                     </button>
                 </div>
                 <p
@@ -906,7 +886,6 @@
             </div>
         </div>
 
-        <!-- Right Drawer -->
         <div class="drawer" id="drawer">
             <div class="drawer-header">
                 <h2 class="drawer-title" id="drawer-title">Character
@@ -914,7 +893,6 @@
                 <button class="drawer-close" onclick="closeDrawer()">✕</button>
             </div>
 
-            <!-- Tabs -->
             <div class="drawer-tabs">
                 <button class="drawer-tab active" data-tab="overview"
                     onclick="switchTab('overview')">Overview</button>
@@ -933,16 +911,12 @@
                 </button>
             </div>
 
-            <!-- Tab Contents -->
             <div class="drawer-content">
-                <!-- Overview Tab -->
                 <div class="tab-panel active" id="tab-overview">
                     <div class="character-profile" id="character-profile">
-                        <!-- Dynamic content -->
                     </div>
                 </div>
 
-                <!-- Connections Tab -->
                 <div class="tab-panel" id="tab-connections">
                     <div class="connections-controls">
                         <input type="text" class="search-box"
@@ -961,28 +935,21 @@
                         </select>
                     </div>
                     <div class="partners-table" id="partners-table">
-                        <!-- Dynamic table -->
                     </div>
                 </div>
 
-                <!-- Community Tab -->
                 <div class="tab-panel" id="tab-community">
                     <div class="community-info" id="community-info">
-                        <!-- Dynamic content -->
                     </div>
                 </div>
 
-                <!-- Sentiment Tab -->
                 <div class="tab-panel" id="tab-sentiment">
                     <div class="sentiment-info" id="sentiment-info">
-                        <!-- Dynamic sentiment content -->
                     </div>
                 </div>
 
-                <!-- True Identity Tab (Vampire only) -->
                 <div class="tab-panel" id="tab-identity">
                     <div class="identity-info" id="identity-info">
-                        <!-- Dynamic content for vampire identities -->
                     </div>
                 </div>
             </div>
@@ -993,7 +960,6 @@
         <div class="loading" id="loading">Loading network data...</div>
 
         <script>
-        // Load network data
         let networkData = null;
         let svg, g, simulation, link, node, label, zoom;
         let showLabels = true;
@@ -1003,13 +969,11 @@
         let vampireAvatars = [];
         let vampireMergedNode = null;
 
-        // Color palette pentru comunități
         const communityColors = [
             '#FFB347', '#87CEEB', '#DDA0DD', '#F08080',
             '#90EE90', '#F0E68C', '#FFB6C1', '#20B2AA'
         ];
 
-        // Gender icons
         const genderIcons = {
             'M': '♂',
             'F': '♀',
@@ -1017,13 +981,11 @@
             'Unknown': '?'
         };
 
-        // Drawer functions
         function openDrawer(characterData) {
             selectedCharacter = characterData;
             document.getElementById('drawer').classList.add('open');
             document.getElementById('drawer-title').textContent = characterData.label;
             
-            // Render tabs
             renderOverviewTab(characterData);
             renderConnectionsTab(characterData);
             renderCommunityTab(characterData);
@@ -1034,19 +996,16 @@
             document.getElementById('drawer').classList.remove('open');
             selectedCharacter = null;
             
-            // Clear highlights
             link.classed('highlighted', false).classed('dimmed', false);
             node.classed('highlighted', false).classed('dimmed', false);
         }
 
         function switchTab(tabName) {
-            // Update tab buttons
             document.querySelectorAll('.drawer-tab').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
             
-            // Update tab panels
             document.querySelectorAll('.tab-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
@@ -1059,10 +1018,9 @@
             
             const genderIcon = genderIcons[char.gender] || genderIcons['Unknown'];
             const genderLabel = char.gender === 'M' ? 'Male' : 
-                               char.gender === 'F' ? 'Female' : 
-                               char.gender === 'C' ? 'Collective' : 'Unknown';
-            
-            // Check if character is ONLY a silent participant
+                                char.gender === 'F' ? 'Female' : 
+                                char.gender === 'C' ? 'Collective' : 'Unknown';
+                
             const isSilentOnly = char.dialogue_count === 0 && (ca.total_connections || 0) > 0;
             
             container.innerHTML = `
@@ -1118,7 +1076,6 @@
                 </div>
             `;
             
-            // Render charts
             if (ca.gender_distribution) {
                 renderGenderChart(ca.gender_distribution);
             }
@@ -1137,14 +1094,14 @@
             
             if (data.length === 0) return;
             
-            const width = 420;  // Reduced from 460
+            const width = 420;  
             const height = 120;
             const barHeight = 25;
-            const labelWidth = 90;  // Increased for longer labels
+            const labelWidth = 90;  
             
             const x = d3.scaleLinear()
                 .domain([0, d3.max(data, d => d.count)])
-                .range([0, width - labelWidth - 50]);  // Leave space for numbers
+                .range([0, width - labelWidth - 50]);  
             
             const svg = container.append('svg')
                 .attr('width', width)
@@ -1177,8 +1134,8 @@
                 .text(d => {
                     const icon = genderIcons[d.gender] || '?';
                     const label = d.gender === 'M' ? 'Male' : 
-                                 d.gender === 'F' ? 'Female' : 
-                                 d.gender === 'C' ? 'Collective' : 'Unknown';
+                                    d.gender === 'F' ? 'Female' : 
+                                    d.gender === 'C' ? 'Collective' : 'Unknown';
                     return `${icon} ${label}`;
                 });
             
@@ -1198,16 +1155,16 @@
             
             if (!partners || partners.length === 0) return;
             
-            const width = 420;  // Reduced from 460
+            const width = 420;  
             const barHeight = 30;
             const height = partners.length * (barHeight + 5);
-            const labelWidth = 130;  // Space for names
+            const labelWidth = 130;  
             
             const maxWeight = d3.max(partners, d => d.weight);
             
             const x = d3.scaleLinear()
                 .domain([0, maxWeight])
-                .range([0, width - labelWidth - 60]);  // Leave space for numbers
+                .range([0, width - labelWidth - 60]);  
             
             const svg = container.append('svg')
                 .attr('width', width)
@@ -1234,7 +1191,6 @@
                 .style('font-size', '10px')
                 .text(d => {
                     const icon = genderIcons[d.gender] || '';
-                    // Truncate long names
                     const maxLen = 18;
                     const name = d.name.length > maxLen ? d.name.substring(0, maxLen) + '...' : d.name;
                     return `${icon} ${name}`;
@@ -1254,7 +1210,6 @@
             const ca = char.connections_analysis || {};
             const partners = ca.partners || [];
             
-            // Setup filters
             const searchBox = document.getElementById('partner-search');
             const genderFilter = document.getElementById('gender-filter');
             const sortBy = document.getElementById('sort-by');
@@ -1262,19 +1217,16 @@
             function updateTable() {
                 let filtered = [...partners];
                 
-                // Apply search
                 const searchTerm = searchBox.value.toLowerCase();
                 if (searchTerm) {
                     filtered = filtered.filter(p => p.name.toLowerCase().includes(searchTerm));
                 }
                 
-                // Apply gender filter
                 const genderValue = genderFilter.value;
                 if (genderValue !== 'all') {
                     filtered = filtered.filter(p => p.gender === genderValue);
                 }
                 
-                // Apply sort
                 const sortValue = sortBy.value;
                 filtered.sort((a, b) => b[sortValue] - a[sortValue]);
                 
@@ -1285,7 +1237,6 @@
             genderFilter.addEventListener('change', updateTable);
             sortBy.addEventListener('change', updateTable);
             
-            // Initial render
             updateTable();
         }
 
@@ -1341,19 +1292,17 @@
         }
 
         function highlightConnection(sourceId, targetId) {
-            // Highlight specific edge
             link.each(function(d) {
                 const isConnected = (d.source.id === sourceId && d.target.id === targetId) ||
-                                   (d.target.id === sourceId && d.source.id === targetId);
+                                    (d.target.id === sourceId && d.source.id === targetId);
                 d3.select(this).classed('highlighted', isConnected)
-                               .classed('dimmed', !isConnected);
+                                .classed('dimmed', !isConnected);
             });
             
-            // Highlight nodes
             node.each(function(d) {
                 const isHighlighted = d.id === sourceId || d.id === targetId;
                 d3.select(this).classed('highlighted', isHighlighted)
-                               .classed('dimmed', !isHighlighted);
+                                .classed('dimmed', !isHighlighted);
             });
         }
 
@@ -1363,8 +1312,7 @@
         }
 
         function showMessage(text, type) {
-            console.log(`📢 ${type}: ${text}`);
-            // Simple console log for now - can add UI toast later if needed
+            console.log(`${type}: ${text}`);
         }
 
         function renderCommunityTab(char) {
@@ -1394,10 +1342,8 @@
         function renderSentimentTab(char) {
             const container = document.getElementById('sentiment-info');
             
-            // Check if character has dialogues
             const hasDialogues = char.dialogue_count > 0;
             
-            // Check if sentiment data exists
             if (!char.sentiment_profile && !char.emotion_profile) {
                 container.innerHTML = `
                     <div style="padding: 20px; text-align: center;">
@@ -1428,22 +1374,18 @@
             const sentiment = char.sentiment_profile || {};
             const emotions = char.emotion_profile || {};
             
-            // Sentiment distribution
             const sentDist = sentiment.distribution || {};
             const totalSentiment = (sentDist.positive || 0) + (sentDist.neutral || 0) + (sentDist.negative || 0);
             
-            // Emotion distribution
             const emotionDist = emotions.distribution || {};
             const sortedEmotions = Object.entries(emotionDist).sort((a, b) => b[1] - a[1]);
             
-            // Get sentiment color
             function getSentimentColor(label) {
                 if (label === 'positive') return '#10b981';
                 if (label === 'negative') return '#ef4444';
                 return '#6b7280';
             }
             
-            // Get emotion color
             function getEmotionColor(emotion) {
                 const colors = {
                     anger: '#ef4444',
@@ -1521,26 +1463,22 @@
             `;
         }
 
-        // ========== VAMPIRE IDENTITY SYSTEM ==========
-
         function isVampireAvatar(node) {
             return node.meta_identity === 'Vampirul';
         }
 
         function initializeVampireSystem() {
-            // Find all vampire avatars
-            console.log('🔍 Initializing vampire system...');
+            console.log('Initializing vampire system...');
             console.log('Total nodes:', networkData.nodes.length);
             
-            // Debug: check metadata
             const nodesWithMeta = networkData.nodes.filter(n => n.meta_identity);
             console.log('Nodes with meta_identity:', nodesWithMeta.length, nodesWithMeta.map(n => ({id: n.id, meta: n.meta_identity, type: n.identity_type})));
             
             vampireAvatars = networkData.nodes.filter(n => n.meta_identity === 'Vampirul');
-            console.log('🎭 Vampire avatars found:', vampireAvatars.length, vampireAvatars.map(a => ({id: a.id, type: a.identity_type})));
+            console.log('Vampire avatars found:', vampireAvatars.length, vampireAvatars.map(a => ({id: a.id, type: a.identity_type})));
             
             if (vampireAvatars.length === 0) {
-                console.error('❌ No vampire avatars found! Check that metadata is loaded correctly.');
+                console.error('No vampire avatars found! Check that metadata is loaded correctly.');
             }
         }
 
@@ -1548,7 +1486,7 @@
             vampireMerged = !vampireMerged;
             const btn = document.getElementById('vampire-toggle');
             
-            console.log('🎭 Toggle clicked! vampireMerged:', vampireMerged);
+            console.log('Toggle clicked! vampireMerged:', vampireMerged);
             
             if (vampireMerged) {
                 btn.classList.add('active');
@@ -1562,7 +1500,7 @@
         }
 
         function mergeVampireIdentities() {
-            console.log('🎭 MERGING vampire identities...');
+            console.log('MERGING vampire identities...');
             
             if (vampireAvatars.length === 0) {
                 console.error('No vampire avatars found!');
@@ -1571,16 +1509,13 @@
             
             const trueForm = vampireAvatars.find(a => a.identity_type === 'true_form') || vampireAvatars[0];
             
-            // Calculate combined stats
             const totalDialogues = vampireAvatars.reduce((sum, a) => sum + a.dialogue_count, 0);
             
-            // Calculate total words from connections_analysis
             const totalWords = vampireAvatars.reduce((sum, a) => {
                 const ca = a.connections_analysis;
                 return sum + (ca ? (ca.total_words_exchanged || 0) : 0);
             }, 0);
             
-            // Build combined connections_analysis
             const partnersMap = new Map();
             let totalWordsExchanged = 0;
             const genderDist = {'M': 0, 'F': 0, 'C': 0, 'Unknown': 0};
@@ -1589,7 +1524,6 @@
                 const ca = avatar.connections_analysis;
                 if (ca && ca.partners) {
                     ca.partners.forEach(p => {
-                        // Skip other vampire avatars
                         const isVampire = vampireAvatars.some(v => v.id === p.name);
                         if (isVampire) return;
                         
@@ -1620,18 +1554,16 @@
             
             const allPartners = Array.from(partnersMap.values()).sort((a, b) => b.weight - a.weight);
             
-            // Calculate average position
             const avgX = vampireAvatars.reduce((sum, a) => sum + (a.x || 0), 0) / vampireAvatars.length;
             const avgY = vampireAvatars.reduce((sum, a) => sum + (a.y || 0), 0) / vampireAvatars.length;
             
-            // Create merged node
             vampireMergedNode = {
                 id: 'Vampirul (Merged)',
                 label: 'Vampirul (True Form)',
                 x: avgX,
                 y: avgY,
-                fx: avgX,  // Fix position X
-                fy: avgY,  // Fix position Y
+                fx: avgX,  
+                fy: avgY,  
                 dialogue_count: totalDialogues,
                 word_count: totalWords,
                 degree: allPartners.length,
@@ -1660,38 +1592,32 @@
             
             console.log('Created merged node:', vampireMergedNode);
             
-            // Hide avatars
             vampireAvatars.forEach(avatar => {
                 avatar.hidden = true;
             });
             
-            // Add merged node
             networkData.nodes.push(vampireMergedNode);
             
             console.log('Total nodes now:', networkData.nodes.length);
             console.log('Hidden nodes:', networkData.nodes.filter(n => n.hidden).length);
             
-            // Force complete re-render
             renderNetwork();
             
-            // Stop simulation after 1 second to stabilize the merged node
             setTimeout(() => {
                 if (vampireMerged) {
                     simulation.alpha(0).stop();
-                    console.log('🎭 Simulation stopped - merged node stabilized');
+                    console.log('Simulation stopped - merged node stabilized');
                 }
             }, 1000);
         }
 
         function splitVampireIdentities() {
-            console.log('🎭 SPLITTING vampire identities...');
+            console.log('SPLITTING vampire identities...');
             
-            // Unhide avatars
             vampireAvatars.forEach(avatar => {
                 avatar.hidden = false;
             });
             
-            // Remove merged node
             const mergedIndex = networkData.nodes.findIndex(n => n.id === 'Vampirul (Merged)');
             if (mergedIndex > -1) {
                 networkData.nodes.splice(mergedIndex, 1);
@@ -1702,13 +1628,11 @@
             
             console.log('Total nodes now:', networkData.nodes.length);
             
-            // Force complete re-render
             renderNetwork();
             
-            // Restart simulation after split
             setTimeout(() => {
                 simulation.alpha(0.3).restart();
-                console.log('🎭 Simulation restarted after split');
+                console.log('Simulation restarted after split');
             }, 100);
         }
 
@@ -1796,7 +1720,6 @@
             document.getElementById('drawer').classList.add('open');
             document.getElementById('drawer-title').textContent = characterData.label;
             
-            // Show/hide Identity tab based on character
             const identityTab = document.getElementById('identity-tab');
             if (isVampireAvatar(characterData) || characterData.identity_type === 'merged') {
                 identityTab.style.display = 'block';
@@ -1804,7 +1727,6 @@
                 identityTab.style.display = 'none';
             }
             
-            // Render tabs
             renderOverviewTab(characterData);
             renderConnectionsTab(characterData);
             renderCommunityTab(characterData);
@@ -1822,7 +1744,6 @@
                 document.getElementById('loading').style.display = 'none';
                 updateStats();
                 
-                // Initialize vampire system
                 initializeVampireSystem();
                 
                 initVisualization();
@@ -1843,13 +1764,11 @@
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            // Create SVG
             svg = d3.select('#network-container')
                 .append('svg')
                 .attr('width', width)
                 .attr('height', height);
 
-            // Add zoom behavior
             zoom = d3.zoom()
                 .scaleExtent([0.1, 10])
                 .on('zoom', (event) => {
@@ -1858,21 +1777,18 @@
 
             svg.call(zoom);
 
-            // Create container group
             g = svg.append('g');
 
-            // Create force simulation
             simulation = d3.forceSimulation(networkData.nodes)
                 .force('link', d3.forceLink(networkData.edges)
                     .id(d => d.id)
                     .distance(d => {
-                        // Distanță bazată pe tip de relație
                         const directWeight = d.direct || 0;
                         const copresenceWeight = d.copresence || 0;
                         if (directWeight > copresenceWeight) {
-                            return 80; // Mai aproape pentru dialoguri directe
+                            return 80; 
                         } else {
-                            return 150; // Mai departe pentru co-prezență
+                            return 150; 
                         }
                     })
                     .strength(d => {
@@ -1889,49 +1805,41 @@
         }
 
         function setupResize() {
-            // Handle window resize
             window.addEventListener('resize', () => {
                 const container = document.getElementById('network-container');
                 const width = container.clientWidth;
                 const height = container.clientHeight;
 
-                // Update SVG dimensions
                 svg.attr('width', width).attr('height', height);
 
-                // Update force center
                 simulation.force('center', d3.forceCenter(width / 2, height / 2));
                 simulation.alpha(0.3).restart();
             });
         }
 
         function renderNetwork() {
-            // Filter data based on current settings
             const minDialogues = parseInt(document.getElementById('min-dialogues').value);
             const minWeight = parseInt(document.getElementById('min-weight').value);
 
             let filteredNodes = networkData.nodes.filter(n => {
-                if (n.hidden) return false;  // Skip hidden vampire avatars
+                if (n.hidden) return false;  
                 return n.dialogue_count >= minDialogues;
             });
             const nodeIds = new Set(filteredNodes.map(n => n.id));
 
-            // Redirecționează edges când vampire e merged
             let edgesToUse = networkData.edges;
             if (vampireMerged && vampireMergedNode) {
                 edgesToUse = networkData.edges.map(e => {
                     const sourceId = e.source.id || e.source;
                     const targetId = e.target.id || e.target;
                     
-                    // Check if source or target is a vampire avatar
                     const sourceIsVampire = vampireAvatars.some(a => a.id === sourceId);
                     const targetIsVampire = vampireAvatars.some(a => a.id === targetId);
                     
-                    // Skip edges between vampire avatars (internal connections)
                     if (sourceIsVampire && targetIsVampire) {
                         return null;
                     }
                     
-                    // Redirect edge to merged node
                     if (sourceIsVampire) {
                         return {...e, source: vampireMergedNode.id};
                     }
@@ -1949,36 +1857,26 @@
                 }
                 if (e.weight < minWeight) return false;
 
-                // FIX: Logica corectată pentru filtre
                 if (currentFilter === 'direct') {
-                    // Arată DOAR legături care au dialoguri directe (indiferent de co-prezență)
                     return e.direct > 0;
                 } else if (currentFilter === 'copresence') {
-                    // Arată DOAR legături care au co-prezență (indiferent de dialoguri directe)
                     return e.copresence > 0;
                 }
-                // 'all' - arată tot
                 return true;
             });
 
-            // Clear previous elements
             g.selectAll('*').remove();
 
-            // Create links
             link = g.append('g')
                 .selectAll('line')
                 .data(filteredEdges)
                 .join('line')
                 .attr('class', d => {
-                    // FIX: Logica de colorare bazată pe filtru actual
                     if (currentFilter === 'direct') {
-                        // Când filtrul e "direct" → toate liniile sunt albastre
                         return 'link link-direct';
                     } else if (currentFilter === 'copresence') {
-                        // Când filtrul e "copresence" → toate liniile sunt mov
                         return 'link link-copresence';
                     } else {
-                        // Când filtrul e "all" → colorează bazat pe ce domină
                         if (d.direct > d.copresence) {
                             return 'link link-direct';
                         }
@@ -1986,7 +1884,6 @@
                     }
                 })
                 .attr('stroke-width', d => {
-                    // Grosimea bazată pe tipul dominant când e "all"
                     if (currentFilter === 'direct') {
                         return Math.sqrt(d.direct) * 0.8;
                     } else if (currentFilter === 'copresence') {
@@ -1997,7 +1894,6 @@
                 })
                 .attr('stroke-opacity', 0.6);
 
-            // Create nodes
             node = g.append('g')
                 .selectAll('circle')
                 .data(filteredNodes)
@@ -2016,21 +1912,18 @@
                     return classes.join(' ');
                 })
                 .attr('r', d => {
-                    // Merged vampire node is larger
                     if (d.identity_type === 'merged') {
                         return Math.max(20, Math.sqrt(d.dialogue_count) * 3);
                     }
                     return Math.max(5, Math.sqrt(d.dialogue_count) * 2);
                 })
                 .attr('fill', d => {
-                    // Special color for merged vampire
                     if (d.identity_type === 'merged') {
                         return '#8b5cf6';
                     }
                     return communityColors[d.community % communityColors.length];
                 })
                 .attr('stroke', d => {
-                    // Special stroke for vampire avatars
                     if (d.meta_identity === 'Vampirul' && d.identity_type === 'avatar') {
                         return '#ef4444';
                     }
@@ -2048,7 +1941,6 @@
                 .on('mouseout', handleNodeOut)
                 .on('click', handleNodeClick);
 
-            // Create labels
             label = g.append('g')
                 .selectAll('text')
                 .data(filteredNodes)
@@ -2060,7 +1952,6 @@
                 .style('fill', '#e8eaed')
                 .style('display', showLabels ? 'block' : 'none');
 
-            // Update simulation
             simulation.nodes(filteredNodes);
             simulation.force('link').links(filteredEdges);
             simulation.alpha(1).restart();
@@ -2085,8 +1976,8 @@
         function handleNodeHover(event, d) {
             const genderIcon = genderIcons[d.gender] || genderIcons['Unknown'];
             const genderLabel = d.gender === 'M' ? 'Male' : 
-                               d.gender === 'F' ? 'Female' : 
-                               d.gender === 'C' ? 'Collective' : 'Unknown';
+                                d.gender === 'F' ? 'Female' : 
+                                d.gender === 'C' ? 'Collective' : 'Unknown';
             
             const tooltip = document.getElementById('tooltip');
             tooltip.innerHTML = `
@@ -2120,7 +2011,6 @@
             tooltip.style.top = (event.pageY + 15) + 'px';
             tooltip.style.opacity = 1;
 
-            // Highlight connected nodes and edges
             const connectedNodeIds = new Set();
             link.each(function(l) {
                 if (l.source.id === d.id || l.target.id === d.id) {
@@ -2177,7 +2067,6 @@
         }
 
         function setupControls() {
-            // Min dialogues slider
             const minDialoguesSlider = document.getElementById('min-dialogues');
             const minDialoguesValue = document.getElementById('min-dialogues-value');
             minDialoguesSlider.addEventListener('input', (e) => {
@@ -2185,7 +2074,6 @@
                 renderNetwork();
             });
 
-            // Min weight slider
             const minWeightSlider = document.getElementById('min-weight');
             const minWeightValue = document.getElementById('min-weight-value');
             minWeightSlider.addEventListener('input', (e) => {
@@ -2193,7 +2081,6 @@
                 renderNetwork();
             });
 
-            // Filter buttons
             document.querySelectorAll('[data-filter]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
@@ -2203,13 +2090,11 @@
                 });
             });
 
-            // Toggle labels
             document.getElementById('toggle-labels').addEventListener('click', () => {
                 showLabels = !showLabels;
                 label.style('display', showLabels ? 'block' : 'none');
             });
 
-            // Reset zoom
             document.getElementById('reset-zoom').addEventListener('click', () => {
                 svg.transition().duration(750).call(
                     zoom.transform,
@@ -2217,12 +2102,10 @@
                 );
             });
 
-            // Vampire toggle
             document.getElementById('vampire-toggle').addEventListener('click', () => {
                 toggleVampireMerge();
             });
 
-            // Export SVG
             document.getElementById('export-svg').addEventListener('click', () => {
                 const svgData = svg.node().outerHTML;
                 const blob = new Blob([svgData], {type: 'image/svg+xml'});
@@ -2233,7 +2116,6 @@
                 link.click();
             });
 
-            // Export PNG
             document.getElementById('export-png').addEventListener('click', () => {
                 const svgData = svg.node().outerHTML;
                 const canvas = document.createElement('canvas');
@@ -2265,7 +2147,6 @@
             });
         }
 
-        // Load data on page load
         loadData();
     </script>
     </body>
